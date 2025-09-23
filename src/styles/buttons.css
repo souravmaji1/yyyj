@@ -1,0 +1,25 @@
+:root {
+  --btn-light-bg: #ffffff;
+  --btn-light-fg: #0f172a; /* slate-900 */
+  --btn-light-bg-hover: #f1f5f9; /* slate-100 */
+}
+
+:root.dark, [data-theme="dark"] {
+  --btn-light-bg: #e2e8f0; /* slate-200 */
+  --btn-light-fg: #0f172a; /* slate-900 */
+  --btn-light-bg-hover: #cbd5e1; /* slate-300 */
+}
+
+.button--light {
+  background: var(--btn-light-bg);
+  color: var(--btn-light-fg);
+}
+
+.button--light:hover {
+  background: var(--btn-light-bg-hover);
+}
+
+.button--light:focus-visible {
+  outline: 2px solid var(--ring, #93c5fd);
+  outline-offset: 2px;
+}

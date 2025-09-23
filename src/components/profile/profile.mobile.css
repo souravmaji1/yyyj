@@ -1,0 +1,457 @@
+/* Profile Page Mobile Responsive Styles */
+
+/* Base responsive fixes for all screen sizes */
+.profile-mobile-fix {
+  min-width: 0 !important;
+  overflow-x: hidden !important;
+}
+
+.profile-mobile-fix .container {
+  max-width: 100vw !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+/* Mobile specific fixes (max-width: 640px) */
+@media (max-width: 640px) {
+  /* Profile Header */
+  .profile-header {
+    padding-top: 3rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .profile-header .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .profile-header-content {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .profile-image-container {
+    width: 6rem !important; /* 96px */
+    height: 6rem !important; /* 96px */
+    margin: 0 auto !important;
+  }
+
+  .profile-title {
+    font-size: 1.875rem !important; /* 30px */
+    line-height: 2.25rem !important;
+    text-align: center !important;
+  }
+
+  .profile-badges {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    max-width: 20rem !important;
+  }
+
+  .profile-badge {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Profile Content */
+  .profile-content {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .profile-content .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .profile-section-header {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .profile-section-title {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+
+  .profile-section-description {
+    font-size: 0.875rem !important;
+    margin-top: 0.25rem !important;
+  }
+
+  /* Profile Grid Layout */
+  .profile-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .profile-main-content {
+    order: 1 !important;
+  }
+
+  .profile-sidebar {
+    order: 2 !important;
+    position: static !important;
+  }
+
+  /* Profile Tabs */
+  .profile-tabs-list {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.25rem !important;
+    padding: 0.25rem !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .profile-tabs-list::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .profile-tab-trigger {
+    padding: 0.5rem 0.25rem !important;
+    font-size: 0.75rem !important;
+    line-height: 1rem !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+  }
+
+  .profile-tab-trigger svg {
+    width: 0.875rem !important;
+    height: 0.875rem !important;
+    margin-right: 0.25rem !important;
+  }
+
+  .profile-tab-content {
+    margin-top: 1rem !important;
+    padding: 1rem !important;
+  }
+
+  /* Wallet Sidebar Mobile */
+  .wallet-sidebar {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  .wallet-card {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .wallet-balance {
+    font-size: 2rem !important;
+    line-height: 2.5rem !important;
+  }
+
+  .wallet-balance-label {
+    font-size: 0.75rem !important;
+  }
+
+  .nft-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .nft-item {
+    padding: 0.75rem !important;
+  }
+
+  /* Form Components Mobile */
+  .profile-form {
+    padding: 1rem !important;
+  }
+
+  .form-group {
+    margin-bottom: 1rem !important;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 1rem !important; /* Prevent zoom on iOS */
+    padding: 0.75rem !important;
+    min-height: 2.75rem !important; /* 44px - minimum touch target */
+  }
+
+  .form-label {
+    font-size: 0.875rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .form-button {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    min-height: 2.75rem !important; /* 44px - minimum touch target */
+    margin-top: 1rem !important;
+  }
+
+  /* Address and Form Grids */
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .address-card {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* KYC Section Mobile */
+  .kyc-section {
+    padding: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .kyc-content {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+  }
+
+  .kyc-text {
+    text-align: center !important;
+  }
+
+  .kyc-button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Game and Order History Tables */
+  .history-table {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .history-table table {
+    min-width: 100% !important;
+    font-size: 0.875rem !important;
+  }
+
+  .history-table th,
+  .history-table td {
+    padding: 0.5rem 0.25rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* Order History Cards - Better for mobile */
+  .order-card {
+    display: block !important;
+    width: 100% !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+    border-radius: 0.5rem !important;
+    background: var(--color-surface-variant) !important;
+  }
+
+  .order-card-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .order-card-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  .order-detail {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Tablet specific adjustments (641px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .profile-header {
+    padding-top: 4rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .profile-tabs-list {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+
+  .profile-tab-trigger {
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  .profile-grid {
+    grid-template-columns: 2fr 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .wallet-sidebar {
+    position: sticky !important;
+    top: 2rem !important;
+  }
+}
+
+/* Large mobile devices (481px - 640px) */
+@media (min-width: 481px) and (max-width: 640px) {
+  .profile-tabs-list {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .profile-tab-trigger {
+    font-size: 0.875rem !important;
+    padding: 0.625rem 0.5rem !important;
+  }
+
+  .profile-badges {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .profile-badge {
+    width: auto !important;
+    min-width: 8rem !important;
+  }
+}
+
+/* Very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .profile-header .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .profile-content .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .profile-title {
+    font-size: 1.5rem !important; /* 24px */
+    line-height: 2rem !important;
+  }
+
+  .profile-tab-trigger {
+    padding: 0.5rem 0.25rem !important;
+    font-size: 0.6875rem !important; /* 11px */
+  }
+
+  .profile-tab-trigger svg {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 0.625rem !important;
+  }
+
+  .wallet-card {
+    padding: 0.75rem !important;
+  }
+
+  .wallet-balance {
+    font-size: 1.75rem !important;
+    line-height: 2rem !important;
+  }
+}
+
+/* High DPI displays adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .profile-image-container {
+    border-width: 2px !important;
+  }
+
+  .profile-tab-trigger svg {
+    stroke-width: 1.5 !important;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 640px) and (orientation: landscape) {
+  .profile-header {
+    padding-top: 2rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .profile-header-content {
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+  }
+
+  .profile-image-container {
+    width: 4rem !important;
+    height: 4rem !important;
+    margin: 0 !important;
+  }
+
+  .profile-title {
+    font-size: 1.5rem !important;
+    text-align: left !important;
+  }
+}
+
+/* Dark mode specific mobile adjustments */
+@media (prefers-color-scheme: dark) and (max-width: 640px) {
+  .profile-tab-content {
+    background: rgba(23, 20, 50, 0.7) !important;
+  }
+
+  .wallet-card {
+    background: rgba(23, 20, 50, 0.6) !important;
+  }
+
+  .order-card {
+    background: rgba(23, 20, 50, 0.5) !important;
+  }
+}
+
+/* Accessibility improvements for mobile */
+@media (max-width: 640px) {
+  /* Ensure focus indicators are visible on mobile */
+  .profile-tab-trigger:focus-visible {
+    outline: 2px solid var(--color-primary) !important;
+    outline-offset: 2px !important;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    outline: 2px solid var(--color-primary) !important;
+    outline-offset: 1px !important;
+  }
+
+  /* Ensure buttons have adequate touch targets */
+  .profile-tab-trigger,
+  .form-button,
+  .wallet-button {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+/* Safe area support for devices with notches */
+@supports (padding: max(0px)) {
+  .profile-header .container {
+    padding-left: max(1rem, env(safe-area-inset-left)) !important;
+    padding-right: max(1rem, env(safe-area-inset-right)) !important;
+  }
+
+  .profile-content .container {
+    padding-left: max(1rem, env(safe-area-inset-left)) !important;
+    padding-right: max(1rem, env(safe-area-inset-right)) !important;
+  }
+}

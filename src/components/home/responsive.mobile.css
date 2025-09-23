@@ -1,0 +1,506 @@
+@media (max-width: 640px) {
+    .hero-mobile-fix {
+        min-width: 0 !important;
+        /* width: 100vw !important; */
+        overflow-x: hidden !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .hero-mobile-fix .container {
+        max-width: 100vw !important;
+        /* width: 100vw !important; */
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .hero-mobile-fix h1,
+    .hero-mobile-fix p {
+        max-width: 100vw !important;
+        word-break: break-word !important;
+    }
+
+    .hero-mobile-fix .flex {
+        /* flex-direction: column !important; */
+        gap: 12px !important;
+    }
+
+    .hero-mobile-fix button {
+        /* width: 100% !important; */
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .TabsList, .tabs-list, .tab-list {
+        border: none !important;
+        box-shadow: none !important;
+        background: #232f3e !important;
+        padding: 4px !important;
+        gap: 8px !important;
+        scrollbar-width: none !important; /* Firefox */
+        -ms-overflow-style: none !important; /* IE 10+ */
+    }
+
+    .TabsList::-webkit-scrollbar, .tabs-list::-webkit-scrollbar, .tab-list::-webkit-scrollbar {
+        width: 0 !important;
+        height: 0 !important;
+        display: none !important;
+        background: transparent !important;
+    }
+
+    .TabsTrigger, .tabs-trigger, .tab-trigger {
+        min-width: 100px !important;
+        margin-right: 8px !important;
+        border-radius: 999px !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: #232f3e !important;
+        color: #fff !important;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
+        padding: 8px 16px !important;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .TabsTrigger:last-child, .tabs-trigger:last-child, .tab-trigger:last-child {
+        margin-right: 0 !important;
+    }
+
+    .TabsTrigger[data-state="active"], .tabs-trigger[data-state="active"], .tab-trigger[data-state="active"] {
+        background: var(--color-surface) !important;
+        color: var(--color-primary) !important;
+        font-weight: bold !important;
+        border: 1.5px solid var(--color-primary) !important;
+        box-shadow: 0 2px 8px 0 rgba(2,167,253,0.08) !important;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* About Section */
+    .about-mobile-fix .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .about-mobile-fix .pl-6,
+    .about-mobile-fix .pr-7,
+    .about-mobile-fix .sm\:pl-12,
+    .about-mobile-fix .lg\:pl-20 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Shopify Section */
+    .shopify-mobile-fix .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .shopify-mobile-fix .pl-6,
+    .shopify-mobile-fix .pr-7 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* ProductNftBanner Section */
+    .productnft-mobile-fix .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .productnft-mobile-fix .pl-12,
+    .productnft-mobile-fix .pr-7 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Games Section (slider container) */
+    .games-mobile-fix {
+        position: relative !important;
+        z-index: 1 !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .games-mobile-fix .container {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+
+    .games-mobile-fix .rounded-xl,
+    .games-mobile-fix .rounded-\[29px\] {
+        max-width: 100vw !important;
+       
+        box-sizing: border-box !important;
+    }
+
+    /* NetflixHeroBanner specific fixes */
+    .games-mobile-fix .relative.h-\[70vh\] {
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+        top: 0 !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    /* Ensure NetflixHeroBanner is not cut off */
+    .games-mobile-fix .cursor-pointer {
+        position: relative !important;
+        z-index: 1 !important;
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+    }
+
+    /* Additional NetflixHeroBanner positioning fixes */
+    .games-mobile-fix .relative.h-\[70vh\].min-h-\[500px\] {
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+        top: 0 !important;
+        position: relative !important;
+        z-index: 1 !important;
+        overflow: visible !important;
+    }
+
+    /* Ensure NetflixHeroBanner has proper top spacing */
+    .games-mobile-fix .cursor-pointer .relative.h-\[70vh\] {
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+    }
+
+    /* Additional spacing for NetflixHeroBanner content */
+    .games-mobile-fix .cursor-pointer .container {
+        padding-top: 2rem !important;
+    }
+
+    /* Ensure text content is not cut off */
+    .games-mobile-fix .cursor-pointer h1,
+    .games-mobile-fix .cursor-pointer p {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+
+@media (max-width: 640px) {
+
+    /* About Section */
+    .about-mobile-fix {
+        min-width: 0 !important;
+        /* width: 100vw !important; */
+        overflow-x: hidden !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .about-mobile-fix .container,
+    .about-mobile-fix .grid {
+        max-width: 100vw !important;
+        /* width: 100vw !important; */
+       
+        grid-template-columns: 1fr !important;
+    }
+
+    .about-mobile-fix h1,
+    .about-mobile-fix p {
+        max-width: 100vw !important;
+        word-break: break-word !important;
+    }
+
+    .about-mobile-fix .flex {
+        /* flex-direction: column !important; */
+        gap: 12px !important;
+    }
+
+    .about-mobile-fix button {
+        /* width: 100% !important; */
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ProductNftBanner Section */
+    .productnft-mobile-fix .container,
+    .productnft-mobile-fix .grid {
+        max-width: 100vw !important;
+        /* width: 100vw !important; */
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .productnft-mobile-fix h1,
+    .productnft-mobile-fix p {
+        max-width: 100vw !important;
+        word-break: break-word !important;
+    }
+
+    .productnft-mobile-fix .flex {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .productnft-mobile-fix button {
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ShopifyStore Section */
+    .shopify-mobile-fix .container,
+    .shopify-mobile-fix .grid {
+        max-width: 100vw !important;
+        /* width: 100vw !important; */
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .shopify-mobile-fix h1,
+    .shopify-mobile-fix p {
+        max-width: 100vw !important;
+        word-break: break-word !important;
+    }
+
+    .shopify-mobile-fix .flex {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .shopify-mobile-fix button {
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix Shopify card/box overflow */
+    .shopify-mobile-fix .shopify-card {
+        max-width: 100vw !important;
+        width: 100vw !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    /* ProductRecommendations Section */
+    .productrec-mobile-fix .container {
+        max-width: 100vw !important;
+        width: 100vw !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .productrec-mobile-fix .grid {
+        max-width: 100vw !important;
+        width: 95vw !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+    }
+
+    .productrec-mobile-fix h3,
+    .productrec-mobile-fix p {
+        max-width: 100vw !important;
+        word-break: break-word !important;
+    }
+
+   
+
+ 
+
+    /* Games Section */
+    .games-mobile-fix .container,
+    .games-mobile-fix .grid {
+        max-width: 100vw !important;
+        width: 100vw !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .games-mobile-fix h2,
+    .games-mobile-fix p {
+        max-width: 100vw !important;
+        word-break: break-word !important;
+    }
+
+    .games-mobile-fix .flex {
+        /* flex-direction: column !important; */
+        gap: 12px !important;
+      
+    
+    }
+
+    .games-mobile-fix button {
+        /* width: 100% !important; */
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        /* width: 100% !important; */
+        max-width: 100% !important;
+        margin-left: 2px;
+        margin-right: 2px;
+        margin-bottom: 10px;
+        
+
+    }
+
+    /* NetflixHeroBanner mobile-specific fixes */
+    .games-mobile-fix .relative.h-\[70vh\] {
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+        min-height: 60vh !important;
+    }
+
+    .games-mobile-fix .cursor-pointer .relative.h-\[70vh\] {
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+    }
+
+    .games-mobile-fix .cursor-pointer .container {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    /* Ensure text is properly sized on mobile */
+    .games-mobile-fix .cursor-pointer h1 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .games-mobile-fix .cursor-pointer p {
+        font-size: 0.875rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* GamesGrid Section */
+    .gamesgrid-mobile-fix .container,
+    .gamesgrid-mobile-fix .grid {
+        max-width: 100vw !important;
+        /* width: 100vw !important; */
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .gamesgrid-mobile-fix h2,
+    .gamesgrid-mobile-fix p {
+        max-width: 100vw !important;
+        word-break: break-word !important;
+    }
+
+    .gamesgrid-mobile-fix .flex {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .gamesgrid-mobile-fix button {
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Community Section */
+    .community-mobile-fix .container,
+    .community-mobile-fix .grid {
+        max-width: 100vw !important;
+        width: 100vw !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .community-mobile-fix h2,
+    .community-mobile-fix p {
+        max-width: 100vw !important;
+        word-break: break-word !important;
+    }
+}
+
+
+/* About Page Responsive */
+@media (max-width: 640px) {
+  .about-card {
+    max-width: 98vw !important;
+    padding: 16px 8px !important;
+    border-radius: 1rem !important;
+    font-size: 1rem !important;
+  }
+  .about-card h1 {
+    font-size: 2rem !important;
+  }
+  .about-card h2 {
+    font-size: 1.25rem !important;
+    margin-top: 1.5rem !important;
+  }
+  .about-card p, .about-card ul {
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .about-card {
+    max-width: 90vw !important;
+    padding: 32px 24px !important;
+    border-radius: 1.25rem !important;
+    font-size: 1.1rem !important;
+  }
+  .about-card h1 {
+    font-size: 2.5rem !important;
+  }
+  .about-card h2 {
+    font-size: 1.5rem !important;
+    margin-top: 2rem !important;
+  }
+  .about-card p, .about-card ul {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* AI Studio Page Responsive */
+@media (max-width: 640px) {
+  .ai-studio-card {
+    max-width: 98vw !important;
+    padding: 16px 8px !important;
+    border-radius: 1rem !important;
+    font-size: 1rem !important;
+  }
+  .ai-studio-card h2 {
+    font-size: 1.25rem !important;
+  }
+  .ai-studio-card p {
+    font-size: 1rem !important;
+  }
+  .ai-studio-card {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .about-card h1, .ai-studio-card h1 {
+    font-size: 2rem !important;
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .ai-studio-card {
+    max-width: 90vw !important;
+    padding: 32px 24px !important;
+    border-radius: 1.25rem !important;
+    font-size: 1.1rem !important;
+  }
+  .ai-studio-card h2 {
+    font-size: 1.5rem !important;
+  }
+  .ai-studio-card p {
+    font-size: 1.1rem !important;
+  }
+  .ai-studio-card {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .about-card h1, .ai-studio-card h1 {
+    font-size: 2.5rem !important;
+  }
+}
+
+/* AI Studio Page Gradient Background */
+.ai-studio-bg {
+  background: linear-gradient(135deg, var(--color-surface) 0%, #232f3e 60%, #181F36 100%) !important;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Fullscreen Button Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .demo-game {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(45deg, #333, #666);
+            position: relative;
+            border: 2px solid #555;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #unity-fullscreen-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #007acc;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        #unity-fullscreen-button:hover {
+            background: #005a9f;
+        }
+        .info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(0, 122, 204, 0.1);
+            border-left: 4px solid #007acc;
+            border-radius: 4px;
+        }
+        .test-log {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-family: monospace;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .success {
+            color: #4CAF50;
+        }
+        .error {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unity Fullscreen Button Demo</h1>
+        
+        <div class="info">
+            <h3>Test Scenario</h3>
+            <p>This demo simulates a Unity game with the fullscreen button that the PlayGamePage component will automatically click.</p>
+            <p><strong>Button ID:</strong> <code>unity-fullscreen-button</code></p>
+            <p><strong>Expected Behavior:</strong> When this page loads in an iframe, the button should be automatically clicked.</p>
+        </div>
+
+        <div class="demo-game" id="game-container">
+            <div id="unity-fullscreen-button" onclick="handleFullscreenClick()">🔳 Fullscreen</div>
+            <h2>Simulated Unity Game</h2>
+            <p>This represents a Unity WebGL game with a fullscreen button.</p>
+            <p id="click-status">Waiting for auto-click...</p>
+        </div>
+
+        <div class="test-log" id="log">
+            <div><strong>Activity Log:</strong></div>
+        </div>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        
+        function log(message, type = 'info') {
+            const logElement = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'success' ? 'success' : type === 'error' ? 'error' : '';
+            logElement.innerHTML += `<div class="${className}">[${timestamp}] ${message}</div>`;
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+
+        function handleFullscreenClick() {
+            clickCount++;
+            log(`✓ Unity fullscreen button clicked! (Click #${clickCount})`, 'success');
+            
+            const statusElement = document.getElementById('click-status');
+            statusElement.textContent = `Button clicked ${clickCount} time(s)! Auto-click working! ✓`;
+            statusElement.style.color = '#4CAF50';
+            
+            // Simulate fullscreen behavior
+            const button = document.getElementById('unity-fullscreen-button');
+            button.textContent = '⛶ Exit Fullscreen';
+            button.onclick = handleExitFullscreen;
+            
+            log('Simulating fullscreen mode activation...', 'info');
+        }
+
+        function handleExitFullscreen() {
+            log('Exit fullscreen clicked', 'info');
+            const button = document.getElementById('unity-fullscreen-button');
+            button.textContent = '🔳 Fullscreen';
+            button.onclick = handleFullscreenClick;
+        }
+
+        // Listen for messages from parent (Arena page)
+        window.addEventListener('message', function(event) {
+            log(`Received postMessage: ${JSON.stringify(event.data)}`, 'info');
+            
+            if (event.data?.type === 'TRIGGER_FULLSCREEN') {
+                log('PostMessage fullscreen trigger received!', 'success');
+                handleFullscreenClick();
+            }
+        });
+
+        // Simulate game ready message (what Unity games might send)
+        window.addEventListener('load', function() {
+            log('Demo Unity game loaded', 'info');
+            
+            setTimeout(() => {
+                log('Sending GAME_READY message to parent...', 'info');
+                if (window.parent && window.parent !== window) {
+                    window.parent.postMessage({ type: 'GAME_READY' }, '*');
+                }
+            }, 500);
+        });
+
+        // Initial log
+        log('Unity fullscreen demo initialized');
+        log('Waiting for PlayGamePage component to detect and click the fullscreen button...');
+    </script>
+</body>
+</html>

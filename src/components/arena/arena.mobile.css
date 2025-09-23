@@ -1,0 +1,307 @@
+/* Arena Mobile Responsiveness Fixes */
+
+/* Mobile-first responsive design for arena */
+@media (max-width: 640px) {
+  /* Arena page main container */
+  .arena-page-container {
+    padding: 0 !important;
+  }
+
+  /* Hero banner mobile fixes */
+  .arena-hero-banner {
+    min-height: 60vh !important;
+    padding: 1rem !important;
+  }
+
+  .arena-hero-content {
+    padding: 1rem !important;
+    gap: 1rem !important;
+  }
+
+  .arena-hero-title {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .arena-hero-subtitle {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Tab navigation mobile */
+  .arena-tabs-container {
+    padding: 0.5rem 1rem !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  .arena-tabs-list {
+    gap: 0.5rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .arena-tab-button {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+    min-width: auto !important;
+    flex: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Carousel mobile fixes */
+  .arena-carousel-container {
+    padding: 0 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .arena-carousel-title {
+    font-size: 1.25rem !important;
+    padding: 0 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .arena-carousel-content {
+    gap: 0.75rem !important;
+    padding: 0 !important;
+  }
+
+  /* Card responsive sizing */
+  .arena-card {
+    min-width: 280px !important;
+    width: 280px !important;
+    margin-right: 0.75rem !important;
+  }
+
+  .arena-card-image {
+    height: 160px !important;
+  }
+
+  .arena-card-content {
+    padding: 1rem !important;
+  }
+
+  .arena-card-title {
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .arena-card-subtitle {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Modal mobile improvements */
+  .arena-modal-overlay {
+    padding: 0.5rem !important;
+  }
+
+  .arena-modal-content {
+    max-height: 95vh !important;
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0.75rem !important;
+  }
+
+  .arena-modal-header {
+    padding: 1rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .arena-modal-title {
+    font-size: 1.125rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .arena-modal-close {
+    padding: 0.5rem !important;
+    min-width: 2rem !important;
+    min-height: 2rem !important;
+  }
+
+  .arena-modal-body {
+    padding: 1rem !important;
+  }
+
+  /* Game details mobile */
+  .arena-game-image {
+    aspect-ratio: 16/9 !important;
+    border-radius: 0.5rem !important;
+  }
+
+  .arena-game-info {
+    gap: 0.75rem !important;
+  }
+
+  .arena-game-title {
+    font-size: 1rem !important;
+  }
+
+  .arena-game-description {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .arena-game-play-button {
+    width: 100% !important;
+    padding: 0.75rem !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+  }
+
+  /* Tournament details mobile */
+  .arena-tournament-stats {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .arena-tournament-stat {
+    padding: 0.75rem !important;
+    border-radius: 0.5rem !important;
+  }
+
+  .arena-tournament-stat-icon {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  .arena-tournament-stat-label {
+    font-size: 0.75rem !important;
+  }
+
+  .arena-tournament-stat-value {
+    font-size: 0.875rem !important;
+  }
+
+  /* Prediction details mobile */
+  .arena-prediction-odds {
+    gap: 0.5rem !important;
+  }
+
+  .arena-prediction-button {
+    padding: 0.75rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Betting modal mobile fixes */
+  .arena-bet-modal {
+    margin: 0.5rem !important;
+    border-radius: 0.75rem !important;
+  }
+
+  .arena-bet-amount-buttons {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+
+  .arena-bet-amount-button {
+    padding: 0.5rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Tablet responsive (641px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .arena-tabs-list {
+    justify-content: center !important;
+  }
+
+  .arena-tab-button {
+    min-width: 120px !important;
+  }
+
+  .arena-card {
+    min-width: 320px !important;
+    width: 320px !important;
+  }
+
+  .arena-modal-content {
+    max-width: 600px !important;
+  }
+
+  .arena-tournament-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .arena-card,
+  .arena-tab-button,
+  .arena-bet-amount-button,
+  .arena-game-play-button {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  .arena-modal-close {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+/* Ensure proper scrolling on mobile */
+@media (max-width: 640px) {
+  .arena-carousel-content {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .arena-carousel-content::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Fix for webkit mobile scroll issues */
+  .arena-modal-content {
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* Dark mode specific mobile adjustments */
+@media (max-width: 640px) and (prefers-color-scheme: dark) {
+  .arena-tabs-container {
+    background: rgba(6, 8, 15, 0.95) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+/* High DPI / Retina display adjustments */
+@media (max-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {
+  .arena-card-image {
+    image-rendering: -webkit-optimize-contrast !important;
+  }
+}
+
+/* Accessibility improvements for mobile */
+@media (max-width: 640px) {
+  .arena-card:focus-visible,
+  .arena-tab-button:focus-visible,
+  .arena-game-play-button:focus-visible {
+    outline: 2px solid var(--color-primary) !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Ensure sufficient contrast */
+  .arena-card-subtitle,
+  .arena-game-description {
+    color: rgba(230, 233, 242, 0.8) !important;
+  }
+}
+
+/* Motion preferences */
+@media (max-width: 640px) and (prefers-reduced-motion: reduce) {
+  .arena-card,
+  .arena-modal-content,
+  .arena-tab-button {
+    transition: none !important;
+  }
+
+  .arena-carousel-content {
+    scroll-behavior: auto !important;
+  }
+}

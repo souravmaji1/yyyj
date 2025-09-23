@@ -1,0 +1,283 @@
+/* Motion and Animation Utilities */
+
+/* =============================================================================
+ * MOTION UTILITIES
+ * ============================================================================= */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =============================================================================
+ * TRANSITION UTILITIES  
+ * ============================================================================= */
+
+.motion-base {
+  transition: all var(--dur-150) var(--ease-out);
+}
+
+.motion-colors {
+  transition: color var(--dur-150) var(--ease-out),
+              background-color var(--dur-150) var(--ease-out),
+              border-color var(--dur-150) var(--ease-out);
+}
+
+.motion-transform {
+  transition: transform var(--dur-200) var(--ease-brand);
+}
+
+.motion-opacity {
+  transition: opacity var(--dur-150) var(--ease-out);
+}
+
+.motion-shadow {
+  transition: box-shadow var(--dur-200) var(--ease-out);
+}
+
+/* =============================================================================
+ * ENTRANCE ANIMATIONS
+ * ============================================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-fade {
+    opacity: 0;
+    animation: fadeIn var(--dur-300) var(--ease-out) forwards;
+  }
+
+  .motion-fade-up {
+    opacity: 0;
+    transform: translateY(var(--space-4));
+    animation: fadeInUp var(--dur-300) var(--ease-out) forwards;
+  }
+
+  .motion-fade-down {
+    opacity: 0;
+    transform: translateY(calc(var(--space-4) * -1));
+    animation: fadeInDown var(--dur-300) var(--ease-out) forwards;
+  }
+
+  .motion-fade-left {
+    opacity: 0;
+    transform: translateX(var(--space-4));
+    animation: fadeInLeft var(--dur-300) var(--ease-out) forwards;
+  }
+
+  .motion-fade-right {
+    opacity: 0;
+    transform: translateX(calc(var(--space-4) * -1));
+    animation: fadeInRight var(--dur-300) var(--ease-out) forwards;
+  }
+
+  .motion-scale {
+    transform: scale(0.95);
+    opacity: 0;
+    animation: scaleIn var(--dur-200) var(--ease-brand) forwards;
+  }
+
+  .motion-pop {
+    transform: scale(0.8);
+    opacity: 0;
+    animation: popIn var(--dur-300) var(--ease-bounce) forwards;
+  }
+}
+
+/* =============================================================================
+ * HOVER EFFECTS
+ * ============================================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .motion-hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .motion-hover-glow:hover {
+    box-shadow: 0 0 20px rgba(2, 167, 253, 0.3),
+                0 0 40px rgba(2, 167, 253, 0.1);
+  }
+
+  .motion-hover-brand:hover {
+    box-shadow: var(--shadow-brand-lg);
+    transform: translateY(-1px);
+  }
+}
+
+/* =============================================================================
+ * STATE ANIMATIONS
+ * ============================================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-pulse {
+    animation: pulse var(--dur-1000) var(--ease-in-out) infinite;
+  }
+
+  .motion-bounce {
+    animation: bounce var(--dur-1000) var(--ease-in-out) infinite;
+  }
+
+  .motion-float {
+    animation: float 3s var(--ease-in-out) infinite;
+  }
+}
+
+/* =============================================================================
+ * LOADING STATES
+ * ============================================================================= */
+
+.motion-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-neutral-100) 25%,
+    var(--color-neutral-50) 50%,
+    var(--color-neutral-100) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton var(--dur-1000) var(--ease-in-out) infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-spin {
+    animation: spin var(--dur-1000) var(--ease-linear) infinite;
+  }
+}
+
+/* =============================================================================
+ * KEYFRAME DEFINITIONS
+ * ============================================================================= */
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =============================================================================
+ * DELAY UTILITIES
+ * ============================================================================= */
+
+.motion-delay-75 {
+  animation-delay: var(--dur-75);
+}
+
+.motion-delay-100 {
+  animation-delay: var(--dur-100);
+}
+
+.motion-delay-150 {
+  animation-delay: var(--dur-150);
+}
+
+.motion-delay-200 {
+  animation-delay: var(--dur-200);
+}
+
+.motion-delay-300 {
+  animation-delay: var(--dur-300);
+}
+
+.motion-delay-500 {
+  animation-delay: var(--dur-500);
+}

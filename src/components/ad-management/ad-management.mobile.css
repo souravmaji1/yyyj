@@ -1,0 +1,297 @@
+/* Ad Management Mobile Responsiveness Fixes */
+
+/* Mobile-first responsive design for ad management */
+@media (max-width: 640px) {
+  /* Ad management page main container */
+  .ad-management-container {
+    padding: 0.5rem !important;
+    min-height: 100vh !important;
+  }
+
+  /* Header section mobile fixes */
+  .ad-management-header {
+    margin-bottom: 1rem !important;
+    padding: 1rem !important;
+  }
+
+  .ad-management-title {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .ad-management-subtitle {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Stats grid mobile layout */
+  .ad-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .ad-stats-card {
+    padding: 0.75rem !important;
+    min-height: auto !important;
+  }
+
+  .ad-stats-title {
+    font-size: 0.75rem !important;
+    line-height: 1rem !important;
+  }
+
+  .ad-stats-value {
+    font-size: 1.25rem !important;
+    line-height: 1.5rem !important;
+  }
+
+  /* Advertisement cards mobile layout */
+  .ad-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .ad-card {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+    border-radius: 0.75rem !important;
+  }
+
+  .ad-card-header {
+    padding-bottom: 0.75rem !important;
+    padding-top: 1rem !important;
+    padding-right: 7rem !important;
+  }
+
+  .ad-card-title {
+    font-size: 1rem !important;
+    line-height: 1.25rem !important;
+  }
+
+  .ad-card-description {
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+    margin-top: 0.5rem !important;
+  }
+
+  /* Status badge mobile */
+  .ad-status-badge {
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Action buttons mobile layout */
+  .ad-action-buttons {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    padding-top: 0.75rem !important;
+  }
+
+  .ad-action-button {
+    width: 100% !important;
+    min-width: auto !important;
+    min-height: 44px !important;
+    font-size: 0.875rem !important;
+    padding: 0.75rem !important;
+  }
+
+  /* Pagination mobile */
+  .ad-pagination {
+    justify-content: center !important;
+    margin-top: 1.5rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .ad-pagination-button {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Modal mobile fixes */
+  .ad-modal-content {
+    width: calc(100vw - 1rem) !important;
+    max-width: calc(100vw - 1rem) !important;
+    max-height: calc(100vh - 2rem) !important;
+    margin: 0.5rem !important;
+    border-radius: 0.75rem !important;
+  }
+
+  .ad-modal-header {
+    padding: 1rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .ad-modal-body {
+    padding: 1rem !important;
+    max-height: calc(100vh - 8rem) !important;
+    overflow-y: auto !important;
+  }
+
+  .ad-modal-footer {
+    padding: 1rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Create ad button mobile */
+  .ad-create-button {
+    width: 100% !important;
+    min-height: 44px !important;
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Refresh button mobile */
+  .ad-refresh-button {
+    width: 100% !important;
+    min-height: 44px !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Empty state mobile */
+  .ad-empty-state {
+    padding: 2rem 1rem !important;
+    text-align: center !important;
+  }
+
+  .ad-empty-state-icon {
+    width: 4rem !important;
+    height: 4rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .ad-empty-state-title {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  .ad-empty-state-description {
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+    margin: 0.75rem 0 1.5rem 0 !important;
+  }
+
+  /* Error state mobile */
+  .ad-error-state {
+    padding: 1rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+  }
+
+  .ad-error-button {
+    width: 100% !important;
+    min-height: 44px !important;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .ad-card,
+  .ad-action-button,
+  .ad-pagination-button,
+  .ad-create-button,
+  .ad-refresh-button {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  .ad-modal-close {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+/* Medium screen adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .ad-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  .ad-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1025px) {
+  .ad-cards-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  .ad-stats-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Ensure proper scrolling on mobile */
+@media (max-width: 640px) {
+  .ad-content-scrollable {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Fix for webkit mobile scroll issues */
+  .ad-modal-content {
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* Dark mode specific mobile adjustments */
+@media (max-width: 640px) and (prefers-color-scheme: dark) {
+  .ad-card {
+    background: rgba(26, 38, 76, 0.8) !important;
+    border: 1px solid rgba(100, 116, 139, 0.3) !important;
+  }
+  
+  .ad-stats-card {
+    background: rgba(26, 38, 76, 0.8) !important;
+    border: 1px solid rgba(100, 116, 139, 0.3) !important;
+  }
+
+  .ad-action-button {
+    border: 1px solid rgba(59, 130, 246, 0.5) !important;
+    background: rgba(6, 8, 15, 0.8) !important;
+    color: rgba(96, 165, 250, 1) !important;
+  }
+
+  .ad-action-button:hover {
+    background: rgba(59, 130, 246, 0.2) !important;
+    color: rgba(147, 197, 253, 1) !important;
+  }
+}
+
+/* Motion preferences */
+@media (max-width: 640px) and (prefers-reduced-motion: reduce) {
+  .ad-card,
+  .ad-modal-content,
+  .ad-action-button {
+    transition: none !important;
+  }
+
+  .ad-content-scrollable {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Safe area support for devices with notches */
+@supports (padding: max(0px)) {
+  @media (max-width: 640px) {
+    .ad-management-container {
+      padding-top: max(0.5rem, env(safe-area-inset-top)) !important;
+      padding-bottom: max(0.5rem, env(safe-area-inset-bottom)) !important;
+      padding-left: max(0.5rem, env(safe-area-inset-left)) !important;
+      padding-right: max(0.5rem, env(safe-area-inset-right)) !important;
+    }
+  }
+}

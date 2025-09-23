@@ -1,0 +1,1 @@
+export type AuthStep = "login" | "signup" | "forgot-password" | "new-password" | "email-otp";

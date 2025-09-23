@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flip a Coin</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app" aria-label="Coin flip game">
+    <header class="controls">
+      <div class="prediction">
+        <button id="guess-heads" aria-pressed="false">Heads</button>
+        <button id="guess-tails" aria-pressed="false">Tails</button>
+      </div>
+      <div class="toggles">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button id="sound-toggle" aria-label="Toggle sound">🔊</button>
+      </div>
+    </header>
+
+    <section class="coin-wrapper" aria-live="polite">
+      <div id="coin" class="coin" role="button" tabindex="0" aria-label="Flip the coin">
+        <div class="face front">H</div>
+        <div class="face back">T</div>
+      </div>
+      <button id="flip-btn" class="flip-btn">Flip</button>
+    </section>
+
+    <section class="stats">
+      <div>Current Streak: <span id="streak">0</span></div>
+      <div>Heads: <span id="heads-count">0</span> (<span id="heads-pct">0</span>%)</div>
+      <div>Tails: <span id="tails-count">0</span> (<span id="tails-pct">0</span>%)</div>
+    </section>
+
+    <section class="history">
+      <h2>History</h2>
+      <ul id="history-list"></ul>
+      <button id="reset-history">Reset</button>
+    </section>
+  </main>
+
+  <audio id="flip-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d1b2686a01.mp3?filename=flip-coin-102884.mp3"></audio>
+  <audio id="success-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_8cb8dc17d1.mp3?filename=success-1-6297.mp3"></audio>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

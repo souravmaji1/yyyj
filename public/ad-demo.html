@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Management Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS Custom Properties for consistency */
+        :root {
+            --color-primary: #02a7fd;
+            --color-secondary: #2e2d7b;
+            --color-bg: #06080f;
+            --color-surface: #0c1120;
+            --color-panel: #0f1529;
+        }
+
+        /* Demo styles for View Details button */
+        .view-details-old {
+            background: var(--color-bg);
+            border: 1px solid transparent;
+            color: var(--color-primary);
+        }
+
+        .view-details-fixed {
+            background: var(--color-bg);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: rgb(96, 165, 250);
+        }
+
+        .view-details-fixed:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: rgb(147, 197, 253);
+            border-color: rgba(59, 130, 246, 0.6);
+        }
+
+        /* Dark background for demo */
+        body {
+            background: #06080f;
+            color: white;
+        }
+
+        .demo-card {
+            background: #1A264C;
+            border: 1px solid rgba(100, 116, 139, 0.5);
+        }
+
+        /* Mobile responsive classes from our CSS file */
+        @media (max-width: 640px) {
+            .ad-cards-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .ad-card {
+                padding: 1rem !important;
+                margin-bottom: 1rem !important;
+                border-radius: 0.75rem !important;
+            }
+
+            .ad-action-buttons {
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+                padding-top: 0.75rem !important;
+            }
+
+            .ad-action-button {
+                width: 100% !important;
+                min-width: auto !important;
+                min-height: 44px !important;
+                font-size: 0.875rem !important;
+                padding: 0.75rem !important;
+            }
+
+            .ad-stats-grid {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 0.75rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8 text-center">Ad Management Component Fixes Demo</h1>
+        
+        <!-- Loading State Demo -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">1. Loading State Fix</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-red-400">Before (Empty page issue)</h3>
+                    <div class="demo-card p-6 rounded-lg">
+                        <p class="text-gray-400 text-sm mb-4">Complex loading condition: <code>loading && !hasInitialData && showLoading</code></p>
+                        <div class="text-center text-gray-500">
+                            <!-- This would show nothing due to complex conditions -->
+                            <div class="h-20 flex items-center justify-center">
+                                <span>Nothing renders (empty page)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-green-400">After (Fixed)</h3>
+                    <div class="demo-card p-6 rounded-lg">
+                        <p class="text-gray-400 text-sm mb-4">Simplified condition: <code>loading && safeAds.length === 0 && !error</code></p>
+                        <div class="text-center">
+                            <div class="flex flex-col items-center gap-3">
+                                <svg class="animate-spin h-8 w-8 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <p class="text-gray-400">Loading advertisements...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button Color Fix Demo -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">2. View Details Button Fix</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-red-400">Before (White on white issue)</h3>
+                    <div class="demo-card p-6 rounded-lg">
+                        <p class="text-gray-400 text-sm mb-4">Used CSS variable: <code>text-[var(--color-primary)]</code></p>
+                        <button class="view-details-old px-4 py-2 rounded border transition-all duration-200">
+                            <span class="text-transparent">👁️ View Details (Invisible!)</span>
+                        </button>
+                        <p class="text-red-400 text-xs mt-2">Button text invisible due to CSS variable fallback</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-green-400">After (Fixed)</h3>
+                    <div class="demo-card p-6 rounded-lg">
+                        <p class="text-gray-400 text-sm mb-4">Explicit colors: <code>text-blue-400</code></p>
+                        <button class="view-details-fixed px-4 py-2 rounded border transition-all duration-200">
+                            👁️ View Details
+                        </button>
+                        <p class="text-green-400 text-xs mt-2">Button text now visible with proper contrast</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Responsiveness Demo -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">3. Mobile Responsiveness</h2>
+            <p class="text-gray-400 mb-6">Resize your browser to see mobile-first responsive design in action</p>
+            
+            <!-- Stats Grid -->
+            <div class="ad-stats-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="demo-card p-4 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-400">Total Ads</p>
+                            <p class="text-2xl font-bold text-white">12</p>
+                        </div>
+                        <div class="p-2 bg-blue-500/20 rounded-full">
+                            <svg class="h-6 w-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-card p-4 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-400">Approved</p>
+                            <p class="text-2xl font-bold text-white">8</p>
+                        </div>
+                        <div class="p-2 bg-green-500/20 rounded-full">
+                            <svg class="h-6 w-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-card p-4 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-400">Total Spend</p>
+                            <p class="text-2xl font-bold text-white">1,250 XUT</p>
+                        </div>
+                        <div class="p-2 bg-purple-500/20 rounded-full">
+                            <svg class="h-6 w-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-card p-4 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-400">Pending</p>
+                            <p class="text-2xl font-bold text-white">3</p>
+                        </div>
+                        <div class="p-2 bg-amber-500/20 rounded-full">
+                            <svg class="h-6 w-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Cards Grid -->
+            <div class="ad-cards-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div class="demo-card ad-card p-6 rounded-lg relative">
+                    <div class="absolute top-3 right-3">
+                        <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs border border-green-500/30">
+                            ✅ Approved
+                        </span>
+                    </div>
+                    <div class="pr-20 mb-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Summer Sale Campaign</h3>
+                        <p class="text-gray-400 text-sm">Promote our summer collection with special discounts</p>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-400">Budget:</span>
+                            <span class="text-white font-bold">500.00 XUT</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-400">Duration:</span>
+                            <span class="text-white">7 days remaining</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-slate-600/50 pt-4">
+                        <div class="ad-action-buttons flex flex-wrap gap-2">
+                            <button class="ad-action-button flex-1 min-w-[100px] bg-gray-800 border border-blue-500/30 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300 hover:border-blue-500/60 transition-all duration-200 px-3 py-2 rounded text-sm">
+                                👁️ <span class="hidden sm:inline">View Details</span><span class="sm:hidden">View</span>
+                            </button>
+                            <button class="ad-action-button flex-1 min-w-[100px] bg-gray-800 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 hover:text-amber-300 hover:border-amber-500/60 transition-all duration-200 px-3 py-2 rounded text-sm">
+                                ✏️ Edit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-card ad-card p-6 rounded-lg relative">
+                    <div class="absolute top-3 right-3">
+                        <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs border border-blue-500/30">
+                            📝 Draft
+                        </span>
+                    </div>
+                    <div class="pr-20 mb-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Holiday Promotion</h3>
+                        <p class="text-gray-400 text-sm">Special holiday offers for our customers</p>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-400">Budget:</span>
+                            <span class="text-white font-bold">750.00 XUT</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-gray-400">Status:</span>
+                            <span class="text-amber-400">Awaiting approval</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-slate-600/50 pt-4">
+                        <div class="ad-action-buttons flex flex-wrap gap-2">
+                            <button class="ad-action-button flex-1 min-w-[100px] bg-gray-800 border border-blue-500/30 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300 hover:border-blue-500/60 transition-all duration-200 px-3 py-2 rounded text-sm">
+                                👁️ <span class="hidden sm:inline">View Details</span><span class="sm:hidden">View</span>
+                            </button>
+                            <button class="ad-action-button flex-1 min-w-[100px] bg-gray-800 border border-green-500/30 text-green-400 hover:bg-green-500/20 hover:text-green-300 hover:border-green-500/60 transition-all duration-200 px-3 py-2 rounded text-sm">
+                                🚀 Publish
+                            </button>
+                            <button class="ad-action-button min-w-[50px] bg-gray-800 border border-red-500/30 text-red-400 hover:bg-red-500/20 hover:text-red-300 hover:border-red-500/60 transition-all duration-200 px-3 py-2 rounded text-sm">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="demo-card p-6 rounded-lg">
+            <h2 class="text-2xl font-bold mb-4">Summary of Fixes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-green-400 mb-2">✅ Loading State Fixed</h3>
+                    <p class="text-gray-400 text-sm">Simplified loading conditions ensure immediate display of loading indicators, preventing empty pages.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-green-400 mb-2">✅ Button Colors Fixed</h3>
+                    <p class="text-gray-400 text-sm">Replaced CSS variables with explicit colors to ensure proper contrast and visibility.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-green-400 mb-2">✅ Mobile Responsive</h3>
+                    <p class="text-gray-400 text-sm">Added comprehensive mobile-first design with touch-friendly interactions and optimized layouts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

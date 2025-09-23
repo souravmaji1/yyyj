@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix-Style Arena - Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .line-clamp-1 {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Hero Banner -->
+    <div class="relative h-[80vh] min-h-[600px] overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat hero-gradient"
+             style="background-image: url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=675&fit=crop&crop=center')">
+        </div>
+        
+        <div class="relative h-full flex items-end">
+            <div class="container mx-auto px-4 pb-20">
+                <div class="max-w-2xl animate-fade-in">
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
+                        Crypto Prediction Championship
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-gray-200 mb-6 max-w-lg">
+                        Predict short‑term crypto moves across curated markets. Earn XUT as you climb the live leaderboard.
+                    </p>
+                    
+                    <div class="flex items-center gap-6 mb-8 text-sm text-gray-300">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                            </svg>
+                            <span>892 players</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Ends 1h 23m</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>2.5K XUT rewards</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4">
+                        <button class="bg-white text-black hover:bg-gray-200 px-8 py-3 text-lg font-semibold rounded-md flex items-center gap-2 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                            </svg>
+                            Join Now
+                        </button>
+                        
+                        <button class="bg-gray-800/50 text-white border border-gray-600 hover:bg-gray-700/50 px-8 py-3 text-lg font-semibold rounded-md flex items-center gap-2 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                            </svg>
+                            More Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 -mt-32 pb-20">
+        <!-- Live Now Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-white mb-4 px-4 md:px-8">Live Now</h2>
+            <div class="relative group">
+                <div class="flex gap-4 overflow-x-auto scrollbar-hide px-4 md:px-8 scroll-smooth">
+                    <!-- Card 1 -->
+                    <div class="flex-none w-64 md:w-80">
+                        <div class="relative group cursor-pointer transition-transform duration-300 hover:scale-105">
+                            <div class="relative w-full h-40 md:h-48 rounded-md overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop&crop=center" 
+                                     alt="Crypto Prediction Championship" 
+                                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute top-2 left-2">
+                                    <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                                </div>
+                                <div class="absolute top-2 right-2">
+                                    <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Prediction</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 px-1">
+                                <h3 class="text-sm font-semibold text-white mb-1 line-clamp-1">Crypto Prediction Championship</h3>
+                                <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                        </svg>
+                                        <span>892</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>1h 23m</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1 text-xs text-green-400">
+                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>2.5K XUT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="flex-none w-64 md:w-80">
+                        <div class="relative group cursor-pointer transition-transform duration-300 hover:scale-105">
+                            <div class="relative w-full h-40 md:h-48 rounded-md overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop&crop=center" 
+                                     alt="Red Signal: Escape Protocol" 
+                                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute top-2 left-2">
+                                    <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                                </div>
+                                <div class="absolute top-2 right-2">
+                                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Game</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 px-1">
+                                <h3 class="text-sm font-semibold text-white mb-1 line-clamp-1">Red Signal: Escape Protocol</h3>
+                                <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                        </svg>
+                                        <span>1,248</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>3h 11m</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1 text-xs text-green-400">
+                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>250 XUT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="flex-none w-64 md:w-80">
+                        <div class="relative group cursor-pointer transition-transform duration-300 hover:scale-105">
+                            <div class="relative w-full h-40 md:h-48 rounded-md overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop&crop=center" 
+                                     alt="Last to Live" 
+                                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute top-2 left-2">
+                                    <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                                </div>
+                                <div class="absolute top-2 right-2">
+                                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Game</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 px-1">
+                                <h3 class="text-sm font-semibold text-white mb-1 line-clamp-1">Last to Live</h3>
+                                <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                        </svg>
+                                        <span>2,156</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Ongoing</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1 text-xs text-green-400">
+                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>500 XUT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-white mb-4 px-4 md:px-8">Games</h2>
+            <div class="relative group">
+                <div class="flex gap-4 overflow-x-auto scrollbar-hide px-4 md:px-8 scroll-smooth">
+                    <!-- Game Cards (similar structure as above) -->
+                    <div class="flex-none w-64 md:w-80">
+                        <div class="relative group cursor-pointer transition-transform duration-300 hover:scale-105">
+                            <div class="relative w-full h-40 md:h-48 rounded-md overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?w=400&h=300&fit=crop&crop=center" 
+                                     alt="Crypto Miner Tycoon" 
+                                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute top-2 left-2">
+                                    <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                                </div>
+                                <div class="absolute top-2 right-2">
+                                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Game</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 px-1">
+                                <h3 class="text-sm font-semibold text-white mb-1 line-clamp-1">Crypto Miner Tycoon</h3>
+                                <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                        </svg>
+                                        <span>892</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>2d 5h</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1 text-xs text-green-400">
+                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>1.2K XUT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prediction Markets Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-white mb-4 px-4 md:px-8">Prediction Markets</h2>
+            <div class="relative group">
+                <div class="flex gap-4 overflow-x-auto scrollbar-hide px-4 md:px-8 scroll-smooth">
+                    <!-- Prediction Cards -->
+                    <div class="flex-none w-64 md:w-80">
+                        <div class="relative group cursor-pointer transition-transform duration-300 hover:scale-105">
+                            <div class="relative w-full h-40 md:h-48 rounded-md overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=400&h=300&fit=crop&crop=center" 
+                                     alt="BTC vs ETH Spike Duel" 
+                                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute top-2 left-2">
+                                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                </div>
+                                <div class="absolute top-2 right-2">
+                                    <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Prediction</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 px-1">
+                                <h3 class="text-sm font-semibold text-white mb-1 line-clamp-1">BTC vs ETH Spike Duel</h3>
+                                <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                        </svg>
+                                        <span>312</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Tomorrow</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1 text-xs text-green-400">
+                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>750 XUT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add hover effects for cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add smooth scrolling for carousels
+        document.querySelectorAll('.overflow-x-auto').forEach(carousel => {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.style.cursor = 'grabbing';
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.style.cursor = 'grab';
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.style.cursor = 'grab';
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+</body>
+</html>

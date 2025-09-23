@@ -1,0 +1,62 @@
+{
+  "channels": [
+    {
+      "id": "UCveoU1itJ3ebR407GqOHF-g",
+      "snippet": {
+        "title": "IntelliVerse TechX",
+        "thumbnails": {
+          "high": {
+            "url": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+          }
+        }
+      },
+      "statistics": {
+        "subscriberCount": "1000"
+      }
+    }
+  ],
+  "videos": [
+    {
+      "id": "dQw4w9WgXcQ",
+      "snippet": {
+        "title": "Sample Video",
+        "channelId": "UCveoU1itJ3ebR407GqOHF-g",
+        "channelTitle": "IntelliVerse TechX",
+        "description": "Fallback video data while YouTube quota exceeded.",
+        "publishedAt": "2023-01-01T00:00:00Z",
+        "thumbnails": {
+          "high": {
+            "url": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT4M20S"
+      },
+      "statistics": {
+        "viewCount": "1000"
+      }
+    },
+    {
+      "id": "short1",
+      "snippet": {
+        "title": "Sample Short",
+        "channelId": "UCveoU1itJ3ebR407GqOHF-g",
+        "channelTitle": "IntelliVerse TechX",
+        "description": "Fallback short video for quota errors.",
+        "publishedAt": "2023-02-01T00:00:00Z",
+        "thumbnails": {
+          "high": {
+            "url": "https://img.youtube.com/vi/5NV6Rdv1a3I/hqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT45S"
+      },
+      "statistics": {
+        "viewCount": "500"
+      }
+    }
+  ]
+}
